@@ -4,7 +4,33 @@ It also constitutes a testing ground to improve my skills with the Python langua
 
 ## gipagram-project setup!
 
-### Linux OS
+### Linux OS - System requirements
+Install and run Redis on Podman
+
+    podman --version
+    podman pull docker.io/redis:7
+    mkdir -p ~/redis-data
+    chmod 755 ~/redis-data
+
+    podman run -d \
+      --replace \
+      --name redis \
+      -p 6379:6379 \
+      -v ~/redis-data:/data:Z \
+      redis:7 \
+      redis-server --appendonly yes
+
+    podman logs redis
+
+Install ffmpeg
+
+    sudo dnf install file-libs ffmpeg
+    
+  or
+
+    sudo apt install libmagic1 ffmpeg
+
+### Linux OS - Python Environment
 Prerequisites: Linux OS with Python v3.14.2 properly installed. <br/>
 You can check the Python version installed running this command: <br/>
 
@@ -33,32 +59,6 @@ Optionally upgrade pip package manager:
 Install all the dependencies:
 
     python3 -m pip install -r requirements.txt
-
-### System requirements
-Install and run Redis on Podman
-
-    podman --version
-    podman pull docker.io/redis:7
-    mkdir -p ~/redis-data
-    chmod 755 ~/redis-data
-
-    podman run -d \
-      --replace \
-      --name redis \
-      -p 6379:6379 \
-      -v ~/redis-data:/data:Z \
-      redis:7 \
-      redis-server --appendonly yes
-
-    podman logs redis
-
-Install ffmpeg
-
-    sudo dnf install file-libs ffmpeg
-    
-  or
-
-    sudo apt install libmagic1 ffmpeg
 
 ### Run the application in development mode
     cd src/
