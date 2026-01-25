@@ -1,7 +1,7 @@
 import os, time, hashlib, json
 import magic
 
-MEDIA_ROOT = "/mnt/nas/media_test1"
+MEDIA_ROOT = "media/"
 
 def file_hash(path):
     return hashlib.md5(path.encode()).hexdigest()
