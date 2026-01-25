@@ -38,7 +38,7 @@ Run the command:
 Install and run Redis on Podman
 
     podman --version
-    podman pull redis:7
+    podman pull docker.io/redis:7
     mkdir -p ~/redis-data
     chmod 755 ~/redis-data
 
