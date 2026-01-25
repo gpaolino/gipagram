@@ -21,6 +21,11 @@ Run these commands to get started quickly: <br/>
     python3 -m venv .venv
     source .venv/bin/activate
 
+### Check if the correct virtual environment is active
+Run the command:
+
+    pip -V
+
 Optionally upgrade pip package manager:
 
     python3 -m pip install --upgrade pip
@@ -28,11 +33,6 @@ Optionally upgrade pip package manager:
 Install all the dependencies:
 
     python3 -m pip install -r requirements.txt
-
-### Check if the correct virtual environment is active
-Run the command:
-
-    pip -V
 
 ### System requirements
 Install and run Redis on Podman
