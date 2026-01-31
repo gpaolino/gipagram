@@ -60,8 +60,10 @@ Install all the dependencies:
 
     python3 -m pip install -r requirements.txt
 
-### Run the application in development mode
+### Run the application in Development mode
     cd src/
     export FLASK_APP=app.py
     export FLASK_ENV=development
     flask run
+    # if you are using a Development VM on the same network:
+    flask run --host=0.0.0.0 --port=5000
