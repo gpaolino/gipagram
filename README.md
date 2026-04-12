@@ -64,6 +64,6 @@ Install all the dependencies:
     cd src/
     export FLASK_APP=app.py
     export FLASK_ENV=development
-    flask run
+    flask --debug run
     # if you are using a Development VM on the same network:
     flask run --host=0.0.0.0 --port=5000

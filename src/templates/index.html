@@ -3,10 +3,25 @@
 <head>
   <title>GipaGram</title>
   <style>
-    body { margin:0; background:#000; color:#fff; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:2px; }
-    img, video { width:100%; height:auto; }
-  </style>
+  body { 
+    margin:0; 
+    background:#000; 
+    color:#fff; 
+  }
+
+  .grid { 
+    display: grid; 
+    grid-template-columns: 1fr; /* one column by default */
+    gap: 20px; 
+    justify-items: center; /* horizontal centering */
+  }
+
+  img, video { 
+    width: 40%; 
+    height: auto; 
+    max-width: 750px;
+  }
+</style>
 </head>
 <body>
   <div class="grid" id="grid"></div>
