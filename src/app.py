@@ -18,6 +18,7 @@ def api_media():
     end = start + PAGE_SIZE
 
     cached = r.get("media:list")
+    #cached = False # Force refresh for testing
     if not cached:
         media = scan_media()
         r.setex("media:list", 3600, json.dumps(media))
