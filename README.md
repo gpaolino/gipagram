@@ -98,6 +98,6 @@ Install all the dependencies:
     pip install python-magic-bin
     
     cd src
-    $env:FLASK_APP="app.py"
-    $env:FLASK_ENV="development"
+    set FLASK_APP=app.py
+    set FLASK_ENV=development
     flask --debug run
