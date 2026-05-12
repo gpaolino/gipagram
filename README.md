@@ -85,10 +85,19 @@ Install all the dependencies:
 
     python3 -m pip install -r requirements.txt
 
-### Run the application in Development mode
+### Run the application in Development mode (Linux OS)
     cd src/
     export FLASK_APP=app.py
     export FLASK_ENV=development
     flask --debug run
     # if you are using a Development VM on the same network:
     flask run --host=0.0.0.0 --port=5000
+
+### Run the application in Development mode (Windows OS)
+    pip uninstall python-magic
+    pip install python-magic-bin
+    
+    cd src
+    $env:FLASK_APP="app.py"
+    $env:FLASK_ENV="development"
+    flask --debug run
