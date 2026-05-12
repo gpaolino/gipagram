@@ -30,12 +30,37 @@ Install ffmpeg
 
     sudo apt install libmagic1 ffmpeg
 
+### Windows OS - System requirements
+Install and run Redis on Docker
+
+    docker --version
+    docker pull redis:7
+    mkdir $HOME\redis-data
+
+    docker rm -f redis
+
+    docker run -d `
+      --name redis `
+      -p 6379:6379 `
+      -v "${HOME}\redis-data:/data" `
+      redis:7 `
+      redis-server --appendonly yes
+
+    docker logs redis
+
 ### Linux OS - Python Environment
 Prerequisites: Linux OS with Python v3.14.2 properly installed. <br/>
 You can check the Python version installed running this command: <br/>
 
     python3 --version
 
+### Windows OS - Python Environment
+Prerequisites: Windows OS with Python v3.14.5 properly installed. <br/>
+You can check the Python version installed running this command: <br/>
+
+    py --version
+
+<br/>
 Once you have done that, you can clone this repository in your local environment: <br/>
 
     git clone https://github.com/gpaolino/gipagram.git
