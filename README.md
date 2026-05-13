@@ -85,6 +85,15 @@ Install all the dependencies:
 
     python3 -m pip install -r requirements.txt
 
+## Configure the environment
+Copy the example file:
+
+```bash
+cp .env.example .env
+```
+Then edit `.env` with the proper credentials.
+<br/>
+
 ### Run the application in Development mode (Linux OS)
     cd src/
     export FLASK_APP=app.py
