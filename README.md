@@ -85,7 +85,7 @@ Install all the dependencies:
 
     python3 -m pip install -r requirements.txt
 
-## Configure the environment
+### Configure the environment
 Copy the example file:
 
 ```bash
