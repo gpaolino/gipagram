@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 MEDIA_ROOT = os.getenv("MEDIA_ROOT", "nomedia/")
+SORT = os.getenv("SORT", "mtime")
 
 def file_hash(path):
     # Return a stable id for a file path using MD5 of the path string
@@ -21,10 +22,11 @@ def scan_media():
                 full = os.path.join(root, f)
                 media.append({
                     "path": full,
-                    # Store modification time for sorting
+                    # Store modification time for default orting
                     "mtime": os.path.getmtime(full)
                 })
 
-    # Sort newest first and return list of dicts
-    media.sort(key=lambda x: x["mtime"], reverse=True)
+    # Sort by parameter (or default "mtime") and return list of dicts
+    media.sort(key=lambda x: x[SORT])
+    
     return media

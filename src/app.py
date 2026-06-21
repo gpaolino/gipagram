@@ -1,11 +1,15 @@
 from flask import Flask, jsonify, render_template, request, send_file
 import redis, json, os
 from utils.media import scan_media, file_hash
+from dotenv import load_dotenv
+
+load_dotenv()
+
+CACHE = os.getenv("CACHE", False)
+PAGE_SIZE = 12
 
 app = Flask(__name__)
 r = redis.Redis(host="localhost", port=6379, decode_responses=True)
-
-PAGE_SIZE = 12
 
 @app.route("/")
 def index():
@@ -19,9 +23,9 @@ def api_media():
     start = page * PAGE_SIZE
     end = start + PAGE_SIZE
 
-    # Try to read cached media list from Redis
-    cached = r.get("media:list")
-    #cached = False # Force refresh for testing
+    # Try to read cached media list from Redis, if not refresh for testing
+    cached = r.get("media:list") if CACHE else False
+
     if not cached:
         # Cache miss: scan filesystem and cache JSON for 1 hour
         media = scan_media()
